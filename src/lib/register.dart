@@ -12,6 +12,10 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,11 +42,11 @@ class _RegisterPageState extends State<RegisterPage> {
             style: kLoginSubtitle,
           ),
           const SizedBox(height: 30),
-          textFieldLogin('Name'),
+          textFieldLogin('Name', nameController),
           const SizedBox(height: 16),
-          textFieldLogin('Email'),
+          textFieldLogin('Email', emailController),
           const SizedBox(height: 16),
-          textFieldLogin('Password'),
+          textFieldLogin('Password', passwordController),
           const SizedBox(height: 30),
           btnRegister(),
           const SizedBox(
@@ -132,8 +136,9 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  TextField textFieldLogin(title) {
+  TextField textFieldLogin(title, controller) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         hintText: title,
         focusColor: Colors.grey,
