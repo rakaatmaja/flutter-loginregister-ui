@@ -25,7 +25,6 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   buildBody() {
-    // final height = MediaQuery.of(context).size.height;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(

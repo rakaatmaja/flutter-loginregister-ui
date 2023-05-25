@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'register.dart';
 import 'theme.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -13,6 +12,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +41,9 @@ class _LoginPageState extends State<LoginPage> {
             style: kLoginSubtitle,
           ),
           const SizedBox(height: 16),
-          textFieldLogin('Email'),
+          textFieldLogin('Email', emailController),
           const SizedBox(height: 20),
-          textFieldLogin('Password'),
+          textFieldLogin('Password', passwordController),
           const SizedBox(height: 20),
           const Align(
               alignment: Alignment.centerRight,
@@ -138,8 +140,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  TextField textFieldLogin(title) {
+  TextField textFieldLogin(title, controller) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         hintText: title,
         focusColor: Colors.grey,
