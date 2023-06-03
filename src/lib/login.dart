@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'register.dart';
+import 'service.dart';
 import 'theme.dart';
 
 class LoginPage extends StatefulWidget {
@@ -41,9 +42,9 @@ class _LoginPageState extends State<LoginPage> {
             style: kLoginSubtitle,
           ),
           const SizedBox(height: 16),
-          textFieldLogin('Email', emailController),
+          textFieldLogin('Email', emailController, validateEmail),
           const SizedBox(height: 20),
-          textFieldLogin('Password', passwordController),
+          textFieldLogin('Password', passwordController, validatePassword),
           const SizedBox(height: 20),
           const Align(
               alignment: Alignment.centerRight,
@@ -140,16 +141,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  TextField textFieldLogin(title, controller) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: title,
-        focusColor: Colors.grey,
-        hoverColor: Colors.grey,
-        fillColor: Colors.red,
-        hintStyle: kHintText,
-      ),
-    );
-  }
+  
 }
